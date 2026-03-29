@@ -1,71 +1,47 @@
-aw-android
-==========
+# ActivityWatch Android (AstrBot Edition)
 
-[![GitHub Actions badge](https://github.com/ActivityWatch/aw-android/workflows/Build/badge.svg)](https://github.com/ActivityWatch/aw-android/actions)
-[![Play Store ratings](https://PlayBadges.pavi2410.me/badge/ratings?id=net.activitywatch.android&country=us)](https://play.google.com/store/apps/details?id=net.activitywatch.android)
+> A heavily customized ActivityWatch Android client featuring a native Bottom Navigation Bar, built-in Remote Sycnhoronization Worker, and tailored exclusively for AstrBot monitoring integrations.
 
-A very work-in-progress ActivityWatch app for Android.
+[English](./README.md) | [中文](./README_zh-CN.md)
 
-Available on Google Play:
+![Kotlin](https://img.shields.io/badge/Kotlin-1.8+-purple)
+![Android API](https://img.shields.io/badge/Android-API_21+-green)
+![ActivityWatch](https://img.shields.io/badge/Based_On-ActivityWatch-blue)
 
-<a title="Get it on Google Play" href="https://play.google.com/store/apps/details?id=net.activitywatch.android">
-    <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="240px"/>
-</a>
+## ✨ Custom Features
 
+Compared to the official `aw-android`, this custom fork is specially adapted to connect closely with a standalone [AstrBot](https://github.com/Soulter/AstrBot) for 24/7 mobile app usage state monitoring:
 
-## Usage
+- 🚀 **Background Remote Sync Worker**: Contains a WorkManager task to regularly sync collected raw heartbeats to a private ActivityWatch remote server (even internal Tailscale IP configurations).
+- 👆 **Native Bottom Navigation Bar**: Brutally abandoned the original anti-human "swipeable drawer WebView" and instead baked an interactive, native Bottom Navigation component for instantaneous switching (Activity, Raw Data, AW Settings, Remote Sync).
+- 🔄 **One-Tap Manual Sync & Status Tracker**: A dedicated settings Fragment for testing URL remote connections, observing "Last successful sync time", and a manual "Sync Now" button for instant debug payloads.
+- 🇨🇳 **Bilingual Native Locale Support**: Features proper Android-native string extractions and Chinese localized string values `values-zh-rCN`.
 
-Install the APK from the Play Store or from the [GitHub releases](https://github.com/ActivityWatch/aw-android/releases).
+## 📦 Installation & Usage
 
-### For Oculus Quest
+### Installing the Client 
 
-> **Note** 
-> At some point a Quest system upgrade broke the ability to allow ActivityWatch access to usage stats. This can be fixed by manually assigning the needed permission using adb: `adb shell appops set net.activitywatch.android android:get_usage_stats allow`
-
-It's available [on SideQuest](https://sidequestvr.com/#/app/201). 
-
-
-## Building
-
-To build this app you first need to build aw-server-rust (`./aw-server-rust`) and aw-webui (`./aw-server-rust/aw-webui`).
-
-If you haven't already, initialize the submodules with: `git submodule update --init --recursive`
-
-### Building aw-server-rust
-
-> **Note**
-> If you don't want to go through the hassle of getting Rust up and running, you can download the jniLibs from [aw-server-rust CI artifacts](https://github.com/ActivityWatch/aw-server-rust/actions/workflows/build.yml) and place them in `mobile/src/main/jniLibs` manually instead of following this section.
-
-To build aw-server-rust you need to have Rust nightly installed (with rustup). Then you can build it with:
-
+You can simply deploy the APK from our CI builds, or you can compile it using Android Studio directly:
+```bash
+git clone https://github.com/QXqin/activitywatch_astrbot.git
 ```
-export ANDROID_NDK_HOME=`pwd`/aw-server-rust/NDK  # The path to your NDK
-pushd aw-server-rust && ./install-ndk.sh; popd    # This configures the NDK for use with Rust, and installs the NDK if missing
-env RELEASE=false make aw-server-rust             # Set RELEASE=true to build in release mode (slower build, harder to debug)
-```
+*(Note: As with the official build, this requires recursive fetch of git submodules to compile the underlying `aw-server-rust` components.)*
 
-> **Note**
-> The Android NDK will be downloaded by `install-ndk.sh` to `aw-server-rust/NDK` if `ANDROID_NDK_HOME` not set. You can create a symlink pointing to the real location if you already have it elsewhere (such as /opt/android-ndk/ on Arch Linux).
+### Remote Sync Configuration
 
-### Building aw-webui
+1. Install this customized Android App and grant it required "Usage Access" system permissions.
+2. Tap the bottom-right **[Remote Sync]** section on the Bottom Navigation Bar.
+3. Provide your server's ActivityWatch REST API address (make sure to include `http://` and the port, e.g. `http://100.100.100.100:5600`).
+4. Toggle **Enable Remote Sync**.
+5. (Optional) Tap **Sync Now** manually to test output logs. If success, your Android device will periodically push App-Usage heartbeats flawlessly into your custom remote server.
 
-To build aw-webui you need a recent version of node/npm installed. You can then build it with `make aw-webui`.
+## 🤖 Automate with AstrBot
 
-### Putting it all together
+To leverage this fork inside IM platforms (QQ, Discord, etc):
+1. Navigate to your AstrBot Bot server configuration.
+2. Install the data-cleanup proxy plugin: [astrbot_plugin_activitywatch](https://github.com/QXqin/astrbot_plugin_activitywatch)
+3. Use `/aw config <address>` to securely query your real-time phone usage logs!
 
-Once both aw-server-rust and aw-webui is built, you can build the Android app as any other Android app using Android Studio.
+## 📄 License
 
-### Making a release
-
-To make a release, make a signed tag and push it to GitHub:
-
-```sh
-git tag -s v0.1.0
-git push origin refs/tags/v0.1.0
-```
-
-This will trigger a GitHub Actions workflow which will build the app and upload it to GitHub releases, and deploy it to the Play Store (including the metadata in `./fastlane/metadata/android`).
-
-## More info
-
-For more info, check out the main [ActivityWatch repo](https://github.com/ActivityWatch/activitywatch).
+Inherited under the original [MPL-2.0](./LICENSE) from the creators of the ActivityWatch project.

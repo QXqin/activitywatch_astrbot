@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ActivityWatch</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -5,25 +6,48 @@
     <string name="nav_header_title">ActivityWatch for Android</string>
     <string name="nav_header_subtitle">v0.1.0</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_buckets">BucketsActivity</string>
-    <string name="welcome_title_text">Welcome, early user!</string>
-    <string name="welcome_text">
-        "Thanks for trying out ActivityWatch for Android!"
-        "It\'s not quite as matured as ActivityWatch on other platforms, but it\'s a great step in the right direction and we think it's ready enough to put out there!"
-
-        "\n\n<b>To get started</b>, open the drawer menu in the top left and click on "Activity".
-
-        "\n\n<b>The next step for us</b> is to get cross-device synchronization in place, but it might take a while since we really want to get it right."
-
-        "\n<b>If you\'re new to ActivityWatch</b>, you should also check out the <a href='https://activitywatch.net/'>desktop version of ActivityWatch</a>."
-    </string>
-    <string name="button_log_text">Click me to log data!</string>
+    <string name="action_settings">Remote Sync Settings</string>
+    <string name="title_activity_buckets">Buckets</string>
+    <string name="welcome_title_text">Welcome to ActivityWatch!</string>
+    <string name="welcome_text">ActivityWatch tracks how you spend your time on your devices. It&#8217;s open source, privacy-first, and completely free.\n\nThis Android app is an early version, and we&#8217;re still working on it. If you have any feedback, please let us know!</string>
+    <string name="button_log_text">Log data</string>
     <string name="accessibility_service_description">Allows ActivityWatch to read the URL and title from your browser.</string>
-
-    <!-- This is overridden by gradle config
-    <string name="versionName">unknown version</string>-->
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_continue">Continue</string>
+    <string name="onboarding_finish">Finish</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_permissions_title">Permissions</string>
+    <string name="onboarding_permissions_desc">ActivityWatch requires the following permissions to work.</string>
+    <string name="onboarding_usage_access">Usage Access</string>
+    <string name="onboarding_usage_desc">We need these permissions to track your app usage.</string>
+    <string name="onboarding_accessibility">Accessibility</string>
+    <string name="onboarding_accessibility_desc">(optional) Allow tracking the page title and URL in supported browsers.</string>
+    <string name="onboarding_grant">Grant</string>
+    <string name="onboarding_permission_required">Please grant usage access permission, they are necessary for the core function of the app.</string>
+
+    <!-- Remote sync settings strings -->
+    <string name="remote_sync_title">Remote Sync Settings</string>
+    <string name="remote_sync_server_url_label">ActivityWatch Server URL</string>
+    <string name="remote_sync_server_url_hint">https://your-server.clawcloudrun.com</string>
+    <string name="remote_sync_enable_label">Enable Remote Sync</string>
+    <string name="remote_sync_interval_label">Sync interval (minutes)</string>
+    <string name="remote_sync_save_button">Save &amp; Start Sync</string>
+    <string name="remote_sync_stop_button">Stop Sync</string>
+    <string name="remote_sync_status_label">Sync Status</string>
+    <string name="remote_sync_status_disabled">Disabled</string>
+    <string name="remote_sync_status_enabled">Enabled, syncing every 15 minutes</string>
+    <string name="remote_sync_saved_toast">Settings saved, sync started</string>
+    <string name="remote_sync_stopped_toast">Sync stopped</string>
+    <string name="remote_sync_url_empty_error">Please enter server URL</string>
+    <string name="remote_sync_last_sync_label">Last sync</string>
+    <string name="remote_sync_never">Never</string>
+    <string name="remote_sync_manual_button">Sync Now</string>
+    <string name="remote_sync_manual_toast">Syncing now...</string>
+
+    <string name="title_activity">Activity</string>
+    <string name="title_buckets">Raw Data</string>
+    <string name="title_settings">AW Settings</string>
+    <string name="title_remote_sync">Remote Sync</string>
 </resources>

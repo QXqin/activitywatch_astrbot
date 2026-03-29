@@ -7,32 +7,36 @@
         <item
             android:id="@+id/nav_dashboard"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Home" />
+            android:title="主页" />
         <item
             android:id="@+id/nav_activity"
             android:icon="?attr/actionModeCopyDrawable"
-            android:title="Activity" />
+            android:title="活动记录" />
         <item
             android:id="@+id/nav_buckets"
             android:icon="?attr/actionModeCopyDrawable"
-            android:title="Raw Data" />
+            android:title="原始数据" />
     </group>
 
-    <item android:title="Misc">
+    <item android:title="更多">
         <menu>
             <group>
                 <item
                         android:id="@+id/nav_settings"
                         android:icon="@drawable/ic_menu_manage"
-                        android:title="Settings"/>
+                        android:title="AW 设置"/>
+                <item
+                        android:id="@+id/nav_remote_sync"
+                        android:icon="@drawable/ic_menu_manage"
+                        android:title="远程同步设置"/>
                 <item
                         android:id="@+id/nav_share"
                         android:icon="@drawable/ic_menu_share"
-                        android:title="Share"/>
+                        android:title="分享"/>
                 <item
                         android:id="@+id/nav_send"
                         android:icon="@drawable/ic_menu_send"
-                        android:title="Report bugs"/>
+                        android:title="反馈问题"/>
             </group>
         </menu>
     </item>

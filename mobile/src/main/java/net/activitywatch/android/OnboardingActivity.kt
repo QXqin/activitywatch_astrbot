@@ -42,7 +42,7 @@ class OnboardingActivity : AppCompatActivity() {
 
         // helper function to update texts/visibility of buttons on page change
         fun updateButtons() {
-            nextButton.text = if (viewPager.currentItem == numPages - 1) "Finish" else "Continue"
+            nextButton.text = if (viewPager.currentItem == numPages - 1) getString(R.string.onboarding_finish) else getString(R.string.onboarding_continue)
             backButton.visibility = if (viewPager.currentItem > 0) View.VISIBLE else View.GONE
         }
 
@@ -65,7 +65,7 @@ class OnboardingActivity : AppCompatActivity() {
                     finish()
                 } else {
                     // Show a snackbar and don't finish the activity
-                    val snackbar = Snackbar.make(viewPager, "Please grant usage access permission, they are necessary for the core function of the app.", Snackbar.LENGTH_LONG)
+                    val snackbar = Snackbar.make(viewPager, getString(R.string.onboarding_permission_required), Snackbar.LENGTH_LONG)
                     snackbar.show()
                 }
             }

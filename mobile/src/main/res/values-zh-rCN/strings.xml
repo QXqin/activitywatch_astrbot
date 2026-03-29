@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ActivityWatch</string>
+    <string name="navigation_drawer_open">打开导航菜单</string>
+    <string name="navigation_drawer_close">关闭导航菜单</string>
+    <string name="nav_header_title">ActivityWatch for Android</string>
+    <string name="nav_header_subtitle">v0.1.0</string>
+    <string name="nav_header_desc">导航栏标题</string>
+    <string name="action_settings">远程同步设置</string>
+    <string name="title_activity_buckets">数据桶</string>
+    <string name="welcome_title_text">欢迎使用 ActivityWatch！</string>
+    <string name="welcome_text">ActivityWatch 帮助你了解在设备上的时间使用情况。完全开源、注重隐私、免费使用。\n\n此 Android 版本目前仍在持续开发中，如有反馈欢迎告知！</string>
+    <string name="button_log_text">点击记录数据</string>
+    <string name="accessibility_service_description">允许 ActivityWatch 读取浏览器的 URL 和标题。</string>
+    <string name="hello_blank_fragment">空白页</string>
+
+    <!-- 引导界面 -->
+    <string name="onboarding_continue">继续</string>
+    <string name="onboarding_finish">完成</string>
+    <string name="onboarding_back">返回</string>
+    <string name="onboarding_permissions_title">权限申请</string>
+    <string name="onboarding_permissions_desc">ActivityWatch 需要以下权限才能正常工作。</string>
+    <string name="onboarding_usage_access">使用情况访问权限</string>
+    <string name="onboarding_usage_desc">需要此权限以追踪应用使用情况。</string>
+    <string name="onboarding_accessibility">无障碍权限</string>
+    <string name="onboarding_accessibility_desc">（可选）允许追踪支持的浏览器中的页面标题和 URL。</string>
+    <string name="onboarding_grant">授权</string>
+    <string name="onboarding_permission_required">请授予使用情况访问权限，这是应用核心功能所必需的。</string>
+
+    <!-- 远程同步设置 -->
+    <string name="remote_sync_title">远程同步设置</string>
+    <string name="remote_sync_server_url_label">ActivityWatch 服务器地址</string>
+    <string name="remote_sync_server_url_hint">https://your-server.clawcloudrun.com</string>
+    <string name="remote_sync_enable_label">启用远程同步</string>
+    <string name="remote_sync_interval_label">同步间隔（分钟）</string>
+    <string name="remote_sync_save_button">保存并启动同步</string>
+    <string name="remote_sync_stop_button">停止同步</string>
+    <string name="remote_sync_status_label">同步状态</string>
+    <string name="remote_sync_status_disabled">已停用</string>
+    <string name="remote_sync_status_enabled">已启用，每 15 分钟同步一次</string>
+    <string name="remote_sync_saved_toast">设置已保存，同步任务已启动</string>
+    <string name="remote_sync_stopped_toast">同步任务已停止</string>
+    <string name="remote_sync_url_empty_error">请填写服务器地址</string>
+    <string name="remote_sync_last_sync_label">上次同步</string>
+    <string name="remote_sync_never">从未同步</string>
+    <string name="remote_sync_manual_button">立即同步</string>
+    <string name="remote_sync_manual_toast">正在立即同步...</string>
+
+    <string name="title_activity">活动记录</string>
+    <string name="title_buckets">原始数据</string>
+    <string name="title_settings">AW 设置</string>
+    <string name="title_remote_sync">远程同步</string>
+</resources>

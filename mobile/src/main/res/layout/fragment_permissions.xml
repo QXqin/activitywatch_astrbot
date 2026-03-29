@@ -10,47 +10,35 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Permissions"
+        android:text="@string/onboarding_permissions_title"
         android:textSize="24sp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/varela_round"
-        />
+        android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ActivityWatch requires the following permissions to work."
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginVertical="30dp"
-        >
-
+        android:text="@string/onboarding_permissions_desc"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Usage Access Permission -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usage Access"
+        android:text="@string/onboarding_usage_access"
         android:textSize="16sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
 
         <ImageView
             android:id="@+id/checkmarkUsage"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/ic_x"
-            android:paddingEnd="10dp"
-            />
+            android:paddingEnd="10dp"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -61,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="We need these permissions to track your app usage."
+                android:text="@string/onboarding_usage_desc"
                 android:paddingTop="8dp"/>
         </LinearLayout>
 
@@ -69,19 +57,14 @@
             android:id="@+id/btnGrantUsagePermission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grant" />
+            android:text="@string/onboarding_grant" />
     </LinearLayout>
-
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginVertical="10dp"/>
 
     <!-- Accessibility Permission -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accessibility"
+        android:text="@string/onboarding_accessibility"
         android:textSize="16sp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -105,7 +88,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(optional) Allow tracking the page title and URL in supported browsers."
+                android:text="@string/onboarding_accessibility_desc"
                 android:paddingTop="8dp"/>
         </LinearLayout>
 
@@ -113,7 +96,6 @@
             android:id="@+id/btnGrantAccessibilityPermission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grant" />
-    </LinearLayout>
+            android:text="@string/onboarding_grant" />
     </LinearLayout>
 </LinearLayout>

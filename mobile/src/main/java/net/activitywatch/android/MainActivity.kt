@@ -4,14 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.core.view.GravityCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import android.util.Log
 import net.activitywatch.android.databinding.ActivityMainBinding
+import net.activitywatch.android.fragments.RemoteSyncSettingsFragment
 import net.activitywatch.android.fragments.TestFragment
 import net.activitywatch.android.fragments.WebUIFragment
 import net.activitywatch.android.watcher.UsageStatsWatcher
@@ -21,7 +21,7 @@ private const val TAG = "MainActivity"
 const val baseURL = "http://127.0.0.1:5600"
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, WebUIFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, WebUIFragment.OnFragmentInteractionListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val usw = UsageStatsWatcher(this)
         usw.setupAlarm()
 
-        binding.navView.setNavigationItemSelectedListener(this)
+        binding.bottomNavView.setOnNavigationItemSelectedListener(this)
 
         val ri = RustInterface(this)
         ri.startServerTask(this)
@@ -77,11 +77,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
+        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -96,8 +92,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
-                Snackbar.make(binding.coordinatorLayout, "The settings button was clicked, but it's not yet implemented!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                val fragment = RemoteSyncSettingsFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -125,13 +124,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fragmentClass = WebUIFragment::class.java
                 url = "$baseURL/#/settings/"
             }
-            R.id.nav_share -> {
-                Snackbar.make(binding.coordinatorLayout, "The share button was clicked, but it's not yet implemented!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-            }
-            R.id.nav_send -> {
-                Snackbar.make(binding.coordinatorLayout, "The send button was clicked, but it's not yet implemented!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            R.id.nav_remote_sync -> {
+                val fragment = RemoteSyncSettingsFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit()
             }
         }
 
@@ -152,7 +150,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
         }
 
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }
